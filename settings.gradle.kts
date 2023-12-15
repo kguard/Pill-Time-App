@@ -16,4 +16,14 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PillTime"
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":core")
+include(":core:data")
+include(":core:domain")
+include(":core:model")
+include(":core:designsystem")
+include(":core:common")
+include(":core:database")
+include(":core:ai")
+include(":core:ui")

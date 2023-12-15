@@ -99,12 +99,12 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
-blueguard-android-application = { id = "kguard.android.application", version = "unspecified" }
-blueguard-android-library = { id = "kguard.android.library", version = "unspecified" }
-blueguard-jvm-library = { id = "kguard.jvm.library", version = "unspecified" }
-blueguard-android-hilt = { id = "kguard.android.hilt", version = "unspecified" }
-blueguard-android-room = { id = "kguard.android.room", version = "unspecified" }
-blueguard-android-feature = { id = "kguard.android.feature", version = "unspecified" }
-blueguard-android-application-compose = { id = "kguard.android.application.compose", version = "unspecified" }
-blueguard-android-library-compose = { id = "kguard.android.library.compose", version = "unspecified" }
+blueguard-android-application = { id = "blueguard.android.application", version = "unspecified" }
+blueguard-android-library = { id = "blueguard.android.library", version = "unspecified" }
+blueguard-jvm-library = { id = "blueguard.jvm.library", version = "unspecified" }
+blueguard-android-hilt = { id = "blueguard.android.hilt", version = "unspecified" }
+blueguard-android-room = { id = "blueguard.android.room", version = "unspecified" }
+blueguard-android-feature = { id = "blueguard.android.feature", version = "unspecified" }
+blueguard-android-application-compose = { id = "blueguard.android.application.compose", version = "unspecified" }
+blueguard-android-library-compose = { id = "blueguard.android.library.compose", version = "unspecified" }
 
