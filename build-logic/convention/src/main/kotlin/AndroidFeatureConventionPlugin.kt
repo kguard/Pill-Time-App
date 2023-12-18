@@ -8,8 +8,8 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
-                apply("kguard.android.library")
-                apply("kguard.android.hilt")
+                apply("blueguard.android.library")
+                apply("blueguard.android.hilt")
             }
 
             dependencies {
@@ -36,8 +36,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("androidx.lifecycle.livedata.ktx").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtime.ktx").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewmodel.ktx").get())
-                add("implementation", libs.findLibrary("androidx.navigation.fragment").get())
-                add("implementation", libs.findLibrary("androidx.navigation.ui").get())
+//                add("implementation", libs.findLibrary("androidx.navigation.ui").get())
 
                 add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
             }
