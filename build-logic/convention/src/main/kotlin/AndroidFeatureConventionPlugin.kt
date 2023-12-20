@@ -22,9 +22,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", project(":core:domain"))
 
                 add("testImplementation", kotlin("test"))
-//                add("testImplementation", project(":core:testing"))
                 add("androidTestImplementation", kotlin("test"))
-//                add("androidTestImplementation", project(":core:testing"))
 
                 add("implementation", libs.findLibrary("androidx.hilt.navigation.compose").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtimeCompose").get())
@@ -36,7 +34,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("androidx.lifecycle.livedata.ktx").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.runtime.ktx").get())
                 add("implementation", libs.findLibrary("androidx.lifecycle.viewmodel.ktx").get())
-//                add("implementation", libs.findLibrary("androidx.navigation.ui").get())
 
                 add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
             }
