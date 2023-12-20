@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.blueguard.pilltime.feature.pill"
+    namespace = "com.blueguard.pilltime.feature.maker"
 }
 
 dependencies {
@@ -12,8 +12,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.android.material)
+    implementation(libs.androidx.activity.compose)
     testImplementation(libs.junit4)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.test.espresso.core)
-    implementation(libs.androidx.activity.compose)
 }

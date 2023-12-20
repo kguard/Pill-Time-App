@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.blueguard.pilltime.feature.alarm"
+    namespace = "com.blueguard.pilltime.feature.setting"
 }
 
 dependencies {

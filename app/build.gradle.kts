@@ -49,7 +49,7 @@ android {
 dependencies {
     implementation(projects.feature.alarm)
     implementation(projects.feature.analyze)
-    implementation(projects.feature.pill)
+    implementation(projects.feature.maker)
     implementation(projects.feature.record)
 
     implementation(projects.core.designsystem)
