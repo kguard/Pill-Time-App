@@ -15,7 +15,7 @@ fun NavController.navigateToAnalyze(name: String){
 }
 
 fun NavGraphBuilder.analyzeScreen(onClick:()-> Unit){
-    composable(route = "first"){
+    composable(route = "Analyze"){
         AnalyzeScreen(onClick = {
             onClick()
         })

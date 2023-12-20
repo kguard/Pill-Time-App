@@ -2,6 +2,7 @@ package com.blueguard.feature.analyze
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,7 +17,7 @@ fun PillScreen(
     onClick:()-> Unit
 ){
     Column(
-        modifier = Modifier.background(Color.Yellow)
+        modifier = Modifier.fillMaxSize().background(Color.Yellow)
     ) {
 
     }

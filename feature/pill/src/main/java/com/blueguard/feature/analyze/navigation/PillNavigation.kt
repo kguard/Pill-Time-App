@@ -14,7 +14,7 @@ fun NavController.navigateToPill(name: String){
 }
 
 fun NavGraphBuilder.pillScreen(onClick:()-> Unit){
-    composable(route = "first"){
+    composable(route = "Pill"){
         PillScreen(onClick = {
             onClick()
         })

@@ -16,7 +16,7 @@ fun NavController.navigateToAlarm(name: String){
 }
 
 fun NavGraphBuilder.alarmScreen(onClick:()-> Unit){
-    composable(route = "first"){
+    composable(route = "Alarm"){
         AlarmScreen(onClick = {
             onClick()
         })

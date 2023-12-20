@@ -15,7 +15,7 @@ fun NavController.navigateToRecord(name: String){
 }
 
 fun NavGraphBuilder.recordScreen(onClick:()-> Unit){
-    composable(route = "first"){
+    composable(route = "Record"){
         RecordScreen(onClick = {
             onClick()
         })

@@ -2,6 +2,7 @@ package com.blueguard.feature.record
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,7 +16,8 @@ fun RecordScreen(
     onClick: () -> Unit
 ){
     Column(
-        modifier = Modifier.background(Color.Black)
+        modifier = Modifier.fillMaxSize().fillMaxSize().background(Color.Black)
+
     ) {
 
     }
