@@ -10,6 +10,7 @@ import com.blueguard.feature.analyze.navigation.navigateToAnalyze
 import com.blueguard.feature.analyze.navigation.navigateToPill
 import com.blueguard.feature.record.navigation.navigateToRecord
 import com.blueguard.pilltime.feature.alarm.navigation.navigateToAlarm
+import com.blueguard.pilltime.navigation.Destination
 
 /**
  * 2023-12-20
@@ -31,8 +32,22 @@ fun rememberPillTimeAppState(
 class PillTimeAppState(
     val navController: NavHostController
 ){
+
+    // 목적지 세 개를 리스트로 담기
+    val destinations : List<Destination> = Destination.entries
+
+    // 현 네비게이션 위치 파악
+    val currentLocation = navController.currentDestination?.route ?: ""
+
+    // selected icon 을 위한 현 위치 비교
+    fun checkCurrentLocation(location: String): Boolean {
+        Log.e("TAG", "checkCurrentLocation: $currentLocation", )
+        Log.e("TAG", "location: $location", )
+        return location == currentLocation
+    }
+
     fun navigateToTopLevelDestination(name: String) {
-        if(navController.currentDestination?.route != name) {
+        if(currentLocation != name) {
             navController.popBackStack()
             when (name) {
                 "Alarm" -> navController.navigateToAlarm("Alarm")
