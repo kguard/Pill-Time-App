@@ -5,4 +5,7 @@ package com.blueguard.pilltime
  * pureum
  */
 class MainActivityViewModel {
+    fun test(){
+        R.drawable.main_icon
+    }
 }

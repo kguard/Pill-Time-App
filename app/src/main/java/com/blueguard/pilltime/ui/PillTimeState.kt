@@ -4,12 +4,15 @@ import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
+import androidx.navigation.NavDestination
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.blueguard.feature.analyze.navigation.navigateToAnalyze
-import com.blueguard.feature.analyze.navigation.navigateToPill
+import androidx.navigation.navOptions
 import com.blueguard.feature.record.navigation.navigateToRecord
 import com.blueguard.pilltime.feature.alarm.navigation.navigateToAlarm
+import com.blueguard.pilltime.feature.setting.navigation.navigateToSetting
 import com.blueguard.pilltime.navigation.Destination
 
 /**
@@ -37,24 +40,31 @@ class PillTimeAppState(
     val destinations : List<Destination> = Destination.entries
 
     // 현 네비게이션 위치 파악
-    val currentLocation = navController.currentDestination?.route ?: ""
+    val currentLocation: NavDestination?
+        @Composable get() = navController.currentBackStackEntryAsState().value?.destination
 
-    // selected icon 을 위한 현 위치 비교
+//     selected icon 을 위한 현 위치 비교
     fun checkCurrentLocation(location: String): Boolean {
-        Log.e("TAG", "checkCurrentLocation: $currentLocation", )
-        Log.e("TAG", "location: $location", )
-        return location == currentLocation
+
+        return location == (navController.currentDestination?.route ?: "")
     }
 
     fun navigateToTopLevelDestination(name: String) {
-        if(currentLocation != name) {
-            navController.popBackStack()
-            when (name) {
-                "Alarm" -> navController.navigateToAlarm("Alarm")
-                "Analyze" -> navController.navigateToAnalyze("Analyze")
-                "Pill" -> navController.navigateToPill("Pill")
-                "Record" -> navController.navigateToRecord("Record")
+        Log.e("TAG", "navigateToTopLevelDestination: $name", )
+        Log.e("TAG", "currentLocation: ${navController.currentDestination?.route ?: ""}")
+
+        val navOptions = navOptions {
+            popUpTo(navController.graph.findStartDestination().id){
+                saveState = true
             }
+            launchSingleTop = true
+
+            restoreState = true
+        }
+        when (name) {
+            Destination.ALARM.titleTextId -> navController.navigateToAlarm(navOptions)
+            Destination.RECORD.titleTextId -> navController.navigateToRecord(navOptions)
+            Destination.SETTING.titleTextId-> navController.navigateToSetting(navOptions)
         }
     }
 }

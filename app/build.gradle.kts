@@ -47,10 +47,12 @@ android {
 }
 
 dependencies {
+    implementation(projects.feature.active)
     implementation(projects.feature.alarm)
     implementation(projects.feature.analyze)
     implementation(projects.feature.maker)
     implementation(projects.feature.record)
+    implementation(projects.feature.setting)
 
     implementation(projects.core.designsystem)
 

@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
  */
 
 @Composable
-fun PillScreen(
+fun MakerScreen(
     onClick:()-> Unit
 ){
     Column(
