@@ -52,6 +52,5 @@ gradlePlugin{
             id = "blueguard.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
-
     }
 }
