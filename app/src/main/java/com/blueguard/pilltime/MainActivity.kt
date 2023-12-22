@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
@@ -49,5 +51,12 @@ class MainActivity : ComponentActivity() {
                 PillTimeApp()
             }
         }
+    }
+}
+@Composable
+@Preview(showSystemUi = true)
+fun Test(){
+    PillTimeTheme {
+        PillTimeApp()
     }
 }

@@ -31,19 +31,20 @@ private val colorScheme = lightColorScheme(
 @Composable
 fun PillTimeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = colorScheme
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.surface.toArgb()
+            window.statusBarColor = colorScheme.primaryContainer.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
-        MaterialTheme(
-            colorScheme = colorScheme,
-            content = content
-        )
     }
+    MaterialTheme(
+        colorScheme = colorScheme,
+        content = content
+    )
+
 }
