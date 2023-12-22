@@ -10,6 +10,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.blueguard.pilltime.core.designsystem.theme.PillTimeTheme
 import com.blueguard.pilltime.ui.PillTimeApp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -44,7 +45,9 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            PillTimeApp()
+            PillTimeTheme {
+                PillTimeApp()
+            }
         }
     }
 }

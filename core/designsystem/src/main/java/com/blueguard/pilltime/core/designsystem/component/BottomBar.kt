@@ -4,17 +4,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Text
+import androidx.compose.material3.NavigationBarItemColors
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.NavigationRailDefaults
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.blueguard.pilltime.core.designsystem.theme.gray10
@@ -32,8 +34,10 @@ fun PillTimeNavigationBar(
     content: @Composable RowScope.() -> Unit
 ){
     NavigationBar(
-        modifier = Modifier.clip(RoundedCornerShape(15.dp, 15.dp)).background(Color.Transparent),
-        containerColor = gray20,
+        modifier = Modifier
+            .clip(RoundedCornerShape(15.dp, 15.dp))
+            .background(Color.Transparent),
+        containerColor = PillTimeNavigationDefaults.navigationContentColor(),
         content = content
     )
 }
@@ -51,8 +55,8 @@ fun RowScope.MyNavigationBarItem(
             Icon(
                 painter = painterResource(id = icon),
                 contentDescription = null,
-                modifier = Modifier.size(35.dp),
-                tint = Color.White
+                modifier = Modifier.size(40.dp),
+//                tint = Color.White
             )
         },
 //        label = {
@@ -61,6 +65,31 @@ fun RowScope.MyNavigationBarItem(
 //                color = gray10,
 //            )
 //        },
-        selected = isSelected
+        selected = isSelected,
+        colors = NavigationBarItemDefaults.colors(
+            selectedIconColor = PillTimeNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = PillTimeNavigationDefaults.navigationUnSelectedItemColor(),
+//            unselectedIconColor = gray10
+            indicatorColor = PillTimeNavigationDefaults.navigationIndicatorColor(),
+//            disabledIconColor = Color.White,
+        )
     )
 }
+
+object PillTimeNavigationDefaults{
+    @Composable
+    fun navigationContentColor() = MaterialTheme.colorScheme.primaryContainer
+
+    @Composable
+    fun navigationSelectedItemColor() = MaterialTheme.colorScheme.primary
+
+    @Composable
+    fun navigationUnSelectedItemColor() = MaterialTheme.colorScheme.secondaryContainer
+
+    @Composable
+    fun navigationIndicatorColor() = MaterialTheme.colorScheme.primaryContainer
+
+
+}
+
+

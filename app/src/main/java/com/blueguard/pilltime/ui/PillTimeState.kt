@@ -43,9 +43,8 @@ class PillTimeAppState(
     val currentLocation: NavDestination?
         @Composable get() = navController.currentBackStackEntryAsState().value?.destination
 
-//     selected icon 을 위한 현 위치 비교
+    // selected icon 을 위한 현 위치 비교
     fun checkCurrentLocation(location: String): Boolean {
-
         return location == (navController.currentDestination?.route ?: "")
     }
 
