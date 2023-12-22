@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
  * pureum
  */
 @Composable
-fun SettingScreen(){
+fun SettingScreen(
+    onClick: () -> Unit
+){
     Column(
         modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.surface)
     ) {
