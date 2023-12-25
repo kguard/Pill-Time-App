@@ -1,37 +1,30 @@
 package com.blueguard.pilltime.core.database.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
+import androidx.room.Embedded
+import androidx.room.Relation
+import com.blueguard.pilltime.core.model.Alarm
 
-@Entity(
-    tableName = "Alarm",
-    foreignKeys = [
-        ForeignKey(
-            entity = PillEntity::class,
-            parentColumns = ["pillId"],
-            childColumns = ["pillId"]
-        ),
-        ForeignKey(
-            entity = TimeEntity::class,
-            parentColumns = ["timeId"],
-            childColumns = ["timeId"]
-        ),
-        ForeignKey(
-            entity = TransactionEntity::class,
-            parentColumns = ["transactionId"],
-            childColumns = ["transactionId"]
-        )
-    ]
-)
 data class AlarmEntity(
-    @PrimaryKey(autoGenerate = true)
-    val alarmId : Int = 0,
-    @ColumnInfo(name = "pillId")
-    val pillId : Int,
-    @ColumnInfo(name = "timeId")
-    val timeId : Int,
-    @ColumnInfo(name = "transactionId")
-    val transactionId : Int,
+    @Embedded val transaction: TransactionEntity,
+    @Relation(
+        parentColumn = "transactionId",
+        entityColumn = "pillId"
+    )
+    val pills: List<PillEntity>,
+    @Relation(
+        parentColumn = "transactionId",
+        entityColumn = "timeId"
+    )
+    val times: List<TimeEntity>
+)
+
+fun AlarmEntity.asExternalModel() = Alarm(
+    transactionId = transaction.transactionId,
+    onOff = transaction.onOff,
+    activeType = transaction.activeType,
+    endType = transaction.endType,
+    alarmName = transaction.alarmName,
+    isAgain = transaction.isAgain,
+    pills = pills.map { it.asExternalModel() },
+    times = times.map { it.asExternalModel() }
 )

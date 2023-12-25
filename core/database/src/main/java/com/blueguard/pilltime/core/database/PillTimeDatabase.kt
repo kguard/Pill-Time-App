@@ -14,7 +14,7 @@ import com.blueguard.pilltime.core.database.model.TransactionEntity
 @Database(
     entities = [
         PillEntity::class,
-        AlarmEntity::class,
+//        AlarmEntity::class,
         TimeEntity::class,
         TransactionEntity::class
     ],
