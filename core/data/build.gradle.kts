@@ -15,6 +15,8 @@ dependencies {
     androidTestImplementation(libs.androidx.test.espresso.core)
     implementation (libs.gson)
 
+    implementation(projects.core.model)
+    implementation(projects.core.database)
     //Coroutines
     implementation (libs.kotlinx.coroutines.android )
 }
