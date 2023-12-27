@@ -44,6 +44,7 @@ fun PillTimeTheme(
     }
     MaterialTheme(
         colorScheme = colorScheme,
+        typography = PillTimeTypography,
         content = content
     )
 
