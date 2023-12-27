@@ -63,7 +63,7 @@ fun AlarmCard(
 //            .clickable(
 //                onClick = { isClick = !isClick }
 //            )
-        shape = RoundedCornerShape(20),
+        shape = RoundedCornerShape(10),
         elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
     ) {
         Column(modifier = modifier.padding(16.dp)) {
